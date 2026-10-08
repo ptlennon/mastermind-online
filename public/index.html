@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mastermind Online</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card hero">
+      <h1>Mastermind Online</h1>
+      <p>Two players. One secret code. Ten guesses. One gift.</p>
+    </section>
+
+    <section id="lobby" class="card">
+      <label>Your name <input id="name" maxlength="30" placeholder="Paul" /></label>
+      <div class="actions"><button id="create">Create room</button></div>
+      <div class="join-row">
+        <input id="roomInput" maxlength="5" placeholder="ROOM CODE" />
+        <button id="join">Join room</button>
+      </div>
+    </section>
+
+    <section id="game" class="card hidden">
+      <div class="topbar">
+        <div class="roomline">Room: <strong id="roomCode"></strong> <button id="copy" class="small">Copy</button></div>
+        <div class="round">Round <strong id="roundNumber">1</strong></div>
+      </div>
+
+      <section class="scoreboard" aria-label="Match score">
+        <div class="score-player"><span id="setterScoreName">Setter</span><strong id="setterScore">0</strong></div>
+        <div class="score-divider">—</div>
+        <div class="score-player"><span id="guesserScoreName">Guesser</span><strong id="guesserScore">0</strong></div>
+      </section>
+
+      <div id="status" class="status"></div>
+      <div id="players"></div>
+
+      <div id="giftPanel" class="gift-panel hidden">
+        <h2>Give your opponent a gift</h2>
+        <p>You may give exactly one gift this round.</p>
+        <div class="gift-actions">
+          <button id="giveRedo" class="gift-button">↩ Redo last guess</button>
+          <button id="giveHint" class="gift-button">💡 Reveal one position</button>
+        </div>
+      </div>
+
+      <div id="giftStatus" class="gift-status hidden"></div>
+      <div id="hintBox" class="hint-box hidden"></div>
+
+      <div id="setterPanel" class="hidden">
+        <h2>Choose the secret code</h2>
+        <p>Your friend cannot see this.</p>
+        <div id="secretSlots" class="slots"></div>
+        <div id="setterPalette" class="palette"></div>
+        <button id="lockSecret">Lock secret</button>
+      </div>
+
+      <div id="guesserPanel" class="hidden">
+        <h2>Your guess</h2>
+        <div id="guessSlots" class="slots"></div>
+        <div id="guesserPalette" class="palette"></div>
+        <div class="guess-actions">
+          <button id="submitGuess">Submit guess</button>
+          <button id="useRedo" class="secondary hidden">↩ Use gifted redo</button>
+        </div>
+      </div>
+
+      <div id="board"></div>
+      <div id="endPanel" class="hidden">
+        <h2 id="winnerText"></h2>
+        <div id="secretReveal"></div>
+        <button id="newRound">New round & swap roles</button>
+      </div>
+    </section>
+
+    <p id="toast" class="toast hidden" aria-live="polite"></p>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

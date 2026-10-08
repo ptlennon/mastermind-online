@@ -1,0 +1,57 @@
+:root { font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: #111217; color: #f4f4f5; }
+.wrap { width: min(760px, 92vw); margin: 32px auto; }
+.card { background: #1b1d24; border: 1px solid #2a2d36; border-radius: 18px; padding: 22px; margin-bottom: 16px; box-shadow: 0 12px 32px rgba(0,0,0,.24); }
+.hero { text-align: center; }
+h1 { margin: 0 0 8px; font-size: clamp(2rem, 8vw, 4rem); }
+h2 { margin-bottom: 8px; }
+p { color: #b7bac6; }
+label { display: grid; gap: 8px; }
+input, button { font: inherit; border-radius: 12px; border: 1px solid #3a3d47; padding: 12px 14px; }
+input { background: #12141a; color: white; width: 100%; }
+button { background: #f4f4f5; color: #111217; font-weight: 750; cursor: pointer; }
+button:hover { transform: translateY(-1px); }
+button:focus-visible, input:focus-visible { outline: 3px solid #818cf8; outline-offset: 2px; }
+button.secondary { background: #252936; color: #f4f4f5; }
+.actions { margin: 14px 0; }
+.join-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+.hidden { display: none !important; }
+.topbar { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+.roomline { display: flex; gap: 8px; align-items: center; }
+.round { color: #b7bac6; }
+.small { padding: 7px 10px; font-size: .85rem; }
+.status { margin: 14px 0 6px; font-weight: 700; }
+.scoreboard { margin: 18px 0; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 12px; align-items: center; border: 1px solid #343844; background: #12141a; border-radius: 16px; padding: 12px 16px; }
+.score-player { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-width: 0; }
+.score-player span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #c7c9d2; }
+.score-player strong { font-size: 1.7rem; }
+.score-divider { color: #656a79; }
+.slots { display: flex; gap: 10px; margin: 14px 0; }
+.slot, .peg { width: 46px; height: 46px; border-radius: 50%; border: 3px solid #343844; background: #101116; padding: 0; }
+.slot { cursor: pointer; }
+.palette { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 18px; }
+.color-btn { width: 42px; height: 42px; border-radius: 50%; border: 3px solid rgba(255,255,255,.2); padding: 0; }
+.red { background: #ef4444; } .orange { background: #f97316; } .yellow { background: #eab308; }
+.green { background: #22c55e; } .blue { background: #3b82f6; } .purple { background: #a855f7; }
+.row { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; border-top: 1px solid #2b2e37; padding: 12px 0; }
+.row-pegs { display: flex; gap: 7px; }
+.row .peg { width: 30px; height: 30px; border-width: 2px; }
+.feedback { display: flex; gap: 5px; flex-wrap: wrap; width: 48px; }
+.pin { width: 16px; height: 16px; border-radius: 50%; border: 1px solid #777; }
+.pin.black { background: #050505; } .pin.white { background: #f5f5f5; }
+.gift-panel { margin: 18px 0; border: 1px dashed #555b6d; border-radius: 16px; padding: 16px; background: #151820; }
+.gift-panel h2 { margin-top: 0; }
+.gift-actions, .guess-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.gift-button { flex: 1 1 220px; background: #252936; color: #f4f4f5; }
+.gift-status, .hint-box { margin: 14px 0; padding: 12px 14px; border-radius: 12px; background: #252936; color: #e5e7eb; }
+.hint-box { border: 1px solid #4b5161; }
+.mini-peg { display: inline-block; vertical-align: -4px; width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); margin: 0 4px; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #272a33; color: white; padding: 10px 14px; border-radius: 10px; z-index: 10; max-width: 90vw; text-align: center; }
+@media (max-width: 520px) {
+  .slot, .peg { width: 40px; height: 40px; }
+  .row { grid-template-columns: 24px 1fr auto; }
+  .scoreboard { padding: 10px 12px; }
+  .score-player { flex-direction: column; gap: 2px; align-items: flex-start; }
+  .score-player:last-child { align-items: flex-end; }
+}
